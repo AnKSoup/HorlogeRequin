@@ -1,0 +1,154 @@
+@font-face {
+    font-family: digital;
+    descent-override: 8%;
+    src: url(digital.mono.ttf);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: digital;
+    color: white;
+}
+
+body {
+    background-image: url(requinsC.jpg);
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+/* POUR LA BANDE REQUIN */
+
+.bandeau {
+    overflow: hidden;
+
+    height: 30px;
+    width: 100%;
+    background-image: url(bandeau.png);
+    background-size: auto 30px;
+
+    filter: invert();
+
+    animation: toLeft 270s linear infinite;
+}
+
+.bl {
+    height: 40px;
+    background-size: auto 40px;
+
+    opacity: 75%;
+}
+
+.br {
+    transform: scaleX(-1);
+    animation: toLeftSmall 300s linear infinite;
+
+    opacity: 50%;
+}
+
+@keyframes toLeft {
+    to {
+        background-position: calc(-40*34px);
+    }
+}
+
+@keyframes toLeftSmall {
+    to {
+        background-position: calc(-30*34px);
+    }
+}
+
+/* HORLOGE */
+
+#horloge {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 4rem;
+}
+
+#heureMinute {
+    font-size: 2em;
+}
+
+#jour,
+#secondes {
+    opacity: 50%;
+}
+
+#date {
+    font-size: 4rem;
+    opacity: 75%;
+}
+
+/* POUR MARCHER AVEC PETITS ÉCRANS */
+
+/* Edge cases mais là c'est plutôt cliff cases... */
+/* Vraiment je déteste le css :( */
+
+@media (max-height: 380px) {
+
+    .wrapB {
+        overflow: hidden;
+    }
+
+    .bandeau {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 200px) {
+
+    #horloge,
+    #date {
+        font-size: 10vw;
+    }
+}
+
+@media (max-height: 70px) and (min-width: 150px) and (max-width: 200px) {
+
+    #horloge,
+    #date {
+        font-size: 15vh;
+    }
+}
+
+@media (max-height: 380px) and (min-width: 200px) {
+
+    #horloge,
+    #date {
+        font-size: 15vh;
+    }
+}
+
+@media (max-width: 500px) and (min-height: 160px) {
+
+    #horloge,
+    #date {
+        font-size: 10vw;
+    }
+}
+
+@media (max-height: 380px) and (min-width: 430px) {
+
+    #horloge,
+    #date {
+        font-size: 15vh;
+
+    }
+}
